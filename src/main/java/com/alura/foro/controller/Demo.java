@@ -1,4 +1,4 @@
-package com.alura.foro.view;
+package com.alura.foro.controller;
 
 public class Demo {
 
@@ -6,7 +6,6 @@ public class Demo {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Prueba");
-		System.out.println("Prueba1");
 	}
 
 }
