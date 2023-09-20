@@ -1,5 +1,8 @@
 package com.alura.foro.repository;
 
-public class RespuestaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.alura.foro.model.Respuesta;
 
+public interface RespuestaRepository extends JpaRepository<Respuesta, Long> { 
+	Respuesta findByContenido(String contenido);
 }

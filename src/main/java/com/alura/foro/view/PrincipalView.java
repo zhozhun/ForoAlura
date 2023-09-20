@@ -1,14 +1,20 @@
 package com.alura.foro.view;
 
-import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.text.MaskFormatter;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
 
 public class PrincipalView extends JFrame {
 
@@ -29,7 +35,7 @@ public class PrincipalView extends JFrame {
 //    	==================== 1. Elementos básicos ====================
 
 //		Configurar el título de la ventana
-		setTitle("Alura Hotel");
+		setTitle("Foro Hotel");
 
 //		Establecer el tamaño de la ventana (ancho x alto)
 		setSize(1200, 800);
@@ -37,122 +43,76 @@ public class PrincipalView extends JFrame {
 //		Configurar la operación al cerrar la ventana
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-//		fondo título #5225c4
-
 //    	==================== 2. Componentes ====================
 //		==================== 2.1. Imágenes ====================
+		ImageIcon imagenForo = new ImageIcon("images/imagenForo1.png");
+		JLabel labelImagenForo = new JLabel(imagenForo);
+		labelImagenForo.setBounds(50, 30, 100, 100);
+		add(labelImagenForo);
 
-		ImageIcon tituloInicio = new ImageIcon("images/tituloPrincipal1.png");
-		JLabel labelTituloInicio = new JLabel(tituloInicio);
-		labelTituloInicio.setBounds(110, 40, 340, 50);
-		add(labelTituloInicio);
-
-		ImageIcon imagenInicio = new ImageIcon("images/imagenPrincipal1.png");
-		JLabel labelImagenInicio = new JLabel(imagenInicio);
-		labelImagenInicio.setBounds(70, 200, 400, 400);
-		add(labelImagenInicio);
-
-		ImageIcon imagenInicio2 = new ImageIcon("images/imagenPrincipal3.png");
-		JLabel labelImagenInicio2 = new JLabel(imagenInicio2);
-		labelImagenInicio2.setBounds(850, 100, 80, 70);
-		add(labelImagenInicio2);
-		
-//    	==================== 2.2. Textos ====================
-
-		JTextField textoUsuario = createPlaceholderTextField("Ingresar su usuario: ");
-		textoUsuario.setBounds(700, 250, 400, 50);
-		textoUsuario.setFont(new Font("Arial", Font.BOLD, 16));
-		add(textoUsuario);
-
-		JPasswordField textoContrasena = createPlaceholderPasswordField("Contraseña: ");
-		textoContrasena.setBounds(700, 350, 400, 50);
-		textoContrasena.setFont(new Font("Arial", Font.BOLD, 16));
-		add(textoContrasena);
+//    	==================== 2.2. Etiquetas ====================	
+		JLabel etiquetaForo = new JLabel("Inicio");
+		etiquetaForo.setBounds(1000, 30, 200, 40);
+		etiquetaForo.setFont(new Font("Arial", Font.BOLD, 20));
+		add(etiquetaForo);
 
 //    	==================== 2.3. Botones ====================
 
-		ButtonBorders botonIniciarSesion = new ButtonBorders("Iniciar sesión", new Color(82, 37, 96), 20);
-		botonIniciarSesion.setBounds(750, 450, 300, 60);
-		botonIniciarSesion.setFont(new Font("Arial", Font.BOLD, 24));
-		botonIniciarSesion.setForeground(Color.WHITE);
-		botonIniciarSesion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		botonIniciarSesion.setFocusPainted(false); // Deshabilitar el enfoque predeterminado
-		add(botonIniciarSesion);
+		ButtonBorders agregarTopico = new ButtonBorders("Agregar tópico", new Color(82, 37, 96), 20);
+		agregarTopico.setBounds(950, 150, 220, 40);
+		agregarTopico.setFont(new Font("Arial", Font.BOLD, 20));
+		agregarTopico.setForeground(Color.WHITE);
+		agregarTopico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		agregarTopico.setFocusPainted(false); // Deshabilitar el enfoque predeterminado
+		add(agregarTopico);
 
-//		====================  Páneles ====================
+		ButtonBorders eliminarTopico = new ButtonBorders("Eliminar tópico", new Color(82, 37, 96), 20);
+		eliminarTopico.setBounds(950, 200, 220, 40);
+		eliminarTopico.setFont(new Font("Arial", Font.BOLD, 20));
+		eliminarTopico.setForeground(Color.WHITE);
+		eliminarTopico.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		eliminarTopico.setFocusPainted(false); // Deshabilitar el enfoque predeterminado
+		add(eliminarTopico);
 
-		JPanel panelDerecho = new JPanel();
-		panelDerecho.setBackground(new Color(82, 37, 96));
-		panelDerecho.setBounds(0, 0, 600, 800);
-		panelDerecho.setOpaque(true);
+		ButtonBorders botonSalir = new ButtonBorders("⌂", new Color(82, 37, 96), 20);
+		botonSalir.setBounds(1000, 600, 80, 80);
+		botonSalir.setFont(new Font("Arial", Font.BOLD, 40));
+		botonSalir.setForeground(Color.WHITE);
+		botonSalir.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		botonSalir.setFocusPainted(false); // Deshabilitar el enfoque predeterminado
+		add(botonSalir);
 
-		add(panelDerecho);
+//		====================  2.4. Páneles ====================
+
+		JPanel panelTopicos = new JPanel();
+		panelTopicos.setLayout(null);
+		panelTopicos.setBounds(100, 150, 800, 600);
+		panelTopicos.setBackground(Color.WHITE);
+
+//    	==================== 2.5. Textos ====================
+
+		// JTextArea para mostrar los tópicos
+		JTextArea areaTopicos = new JTextArea();
+//        areaTopicos.setBounds(100, 150, 800, 600);
+		areaTopicos.setWrapStyleWord(true);
+		areaTopicos.setLineWrap(true);
+		areaTopicos.setEditable(false);
+		
+//		texto prueba
+//		areaTopicos.setText("Este es un ejemplo de tópico.\nOtro tópico.\nY otro más."
+//				+ "\\nY otro más.\\nY otro más.\\nY otro más.\\nY otro más.\\nY otro más.\\nY otro más.\\nY otro más.")
+
+
+//    	==================== 2.6. Desplazamiento ====================
+
+		JScrollPane scrollPane = new JScrollPane(areaTopicos);
+//		tamaño de scrollPane igual a panelTopicos para que abarque toda el área
+		scrollPane.setBounds(0, 0, 800, 600);
+		panelTopicos.add(scrollPane);
+//		agregar panelTopicos acá en scrollPane para que se muestre la barra de desplazamiento vertical
+		add(panelTopicos);
+
+//		====================  2.6. Métodos ====================
 
 	}
-
-//	====================  Métodos ====================
-
-//	====================  Placeholder Usuario ====================
-
-	private JTextField createPlaceholderTextField(String placeholder) {
-		JTextField textoUsuario = new JTextField(placeholder);
-		textoUsuario.setForeground(Color.GRAY);
-
-		// Agregar un FocusListener para quitar el placeholder cuando se obtiene el foco
-		textoUsuario.addFocusListener(new FocusListener() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (textoUsuario.getText().equals(placeholder)) {
-					textoUsuario.setText("");
-					textoUsuario.setForeground(Color.BLACK);
-				}
-			}
-
-			@Override
-			public void focusLost(FocusEvent e) {
-				if (textoUsuario.getText().isEmpty()) {
-					textoUsuario.setText(placeholder);
-					textoUsuario.setForeground(Color.GRAY);
-				}
-			}
-		});
-
-		return textoUsuario;
-	}
-
-	private JPasswordField createPlaceholderPasswordField(String placeholder) {
-		JPasswordField passwordField = new JPasswordField(placeholder);
-		passwordField.setForeground(Color.GRAY);
-
-		// Configurar el carácter de eco para mostrar el placeholder como texto
-		passwordField.setEchoChar((char) 0);
-
-		// Agregar un FocusListener para quitar el placeholder cuando se obtiene el foco
-		passwordField.addFocusListener(new FocusListener() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				char[] password = passwordField.getPassword();
-				String passwordText = new String(password);
-				if (passwordText.equals(placeholder)) {
-					passwordField.setText("");
-					passwordField.setEchoChar('*'); // Cambiar a asteriscos cuando se escriba
-					passwordField.setForeground(Color.BLACK);
-				}
-			}
-
-			@Override
-			public void focusLost(FocusEvent e) {
-				char[] password = passwordField.getPassword();
-				String passwordText = new String(password);
-				if (passwordText.isEmpty()) {
-					passwordField.setText(placeholder);
-					passwordField.setEchoChar((char) 0); // Mostrar el placeholder como texto
-					passwordField.setForeground(Color.GRAY);
-				}
-			}
-		});
-
-		return passwordField;
-	}
-
 }

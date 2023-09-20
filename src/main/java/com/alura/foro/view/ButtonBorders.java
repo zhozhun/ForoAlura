@@ -49,7 +49,7 @@ public class ButtonBorders extends JButton {
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
-			PrincipalView ventana = new PrincipalView();
+			LoginView ventana = new LoginView();
 			ventana.setVisible(true);
 		});
 	}

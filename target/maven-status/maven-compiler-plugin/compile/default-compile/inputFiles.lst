@@ -1,0 +1,17 @@
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/controller/RespuestaController.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/view/ButtonBorders.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/repository/RespuestaRepository.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/SistemaDeForoApplication.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/view/PrincipalView.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/repository/UsuarioRepository.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/repository/TopicoRepository.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/model/Usuario.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/view/TextFieldBorders.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/service/UsuarioService.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/service/RespuestaService.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/model/Topico.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/controller/UsuarioController.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/service/TopicoService.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/model/Respuesta.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/service/SeguridadService.java
+/home/lenovo/eclipse-workspace/ForoAlura/src/main/java/com/alura/foro/controller/TopicoController.java

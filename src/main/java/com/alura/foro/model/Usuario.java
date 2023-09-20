@@ -1,11 +1,19 @@
 package com.alura.foro.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import java.util.Date;
 
+@Entity
 public class Usuario {
 
 //	========== campos de clase ==========
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nombreDeUsuario;
 	private String contrasena;
@@ -14,9 +22,12 @@ public class Usuario {
 
 //	========== constructores ==========
 
-	public Usuario(int id, String nombreDeUsuario, String contrasena, String email, Date fechaDeRegistro) {
-		super();
-		this.id = id;
+	public Usuario() {
+		
+	}
+	
+	public Usuario(String nombreDeUsuario, String contrasena, String email, Date fechaDeRegistro) {
+//		no es necesario usar el argumento Id, JPA lo hace automáticamente
 		this.nombreDeUsuario = nombreDeUsuario;
 		this.contrasena = contrasena;
 		this.email = email;
