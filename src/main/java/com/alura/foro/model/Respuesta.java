@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import java.util.Date;
 
@@ -18,6 +20,8 @@ public class Respuesta {
 	private String contenido;
 	private Date fechaDeCreacion;
 	// Referencia al tópico al que pertenece la respuesta
+	@ManyToOne
+	@JoinColumn(name = "topic_id")
 	private Topico topic;
 
 //	========== constructores ==========
